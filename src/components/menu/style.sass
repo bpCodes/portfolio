@@ -1,8 +1,35 @@
+header,nav
+  grid-column: span 4
 
-.menu
+nav
   display: flex
-  padding: 2em
+.list
+  display: flex
+  flex: 2
+  padding: .5em
   background-color: #a2d7ab
+  list-style-type: none
+  margin: 0  
+  li
+    margin-top: 0%
+    
+    a
+      text-decoration: none
+      display: block
+      padding: .5em 1em
+  li + li
+    margin-right: 1.5em
+    
 .logo
   font-size: 1em
   padding: 2em
+  margin-right: auto
+  flex: 1
+
+.item
+  flex: 1
+  padding: .5em 1em
+  font-size: 1.375em
+  justify-content: center
+  align-items: center
+

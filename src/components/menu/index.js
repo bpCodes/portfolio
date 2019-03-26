@@ -1,4 +1,6 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
+
 import style from './style.sass'
 
 const Navigation = () => (
@@ -7,10 +9,10 @@ const Navigation = () => (
       <div className={style.logo}>
         x
       </div>
-      <ul>
-        <li className="item">Work</li>
-        <li className="item">About</li>
-        <li className="item">Playground</li>
+      <ul className={style.list}>
+        <li className={style.item}><NavLink to="/home">Work</NavLink></li>
+        <li className={style.item}><NavLink to="/about">About</NavLink></li>
+        <li className={style.item}><NavLink to="/name">Playground</NavLink></li>
       </ul>
     </nav>
   </header>

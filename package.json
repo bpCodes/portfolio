@@ -1,5 +1,5 @@
 {
-  "name": "BP Designs Portfolio",
+  "name": "@Bpcode/BP-Designs-Portfolio",
   "version": "1.0.0",
   "description": "BP Designs Portfolio,Front End",
   "main": "index.js",
@@ -53,7 +53,8 @@
     "prop-types": "15.6.2",
     "react": "16.7.0",
     "react-dom": "16.7.0",
-    "react-hot-loader": "4.6.3"
+    "react-hot-loader": "4.6.3",
+    "react-router-dom": "^5.0.0"
   },
   "resolutions": {
     "babel-core": "7.0.0-bridge.0"

@@ -1,10 +1,27 @@
-.container
+\:root
+  box-sizing: border-box
+  --bg-color: #E2FFEC
+
+*, ::before, ::after
+  box-sizing: inherit
+
+body
+  background-color: var(--bg-color)
+  font-family: Arial, Helvetica, sans-serif
   margin: 0 auto
-  width: 100%
+  font-size: 16px
+  width: 90%
   max-height: 100vh
   min-height: 100vh
-  background-image: url('trazado.svg') 
-  background-size: 100vh
-  background-repeat: no-repeat
+  * + *
+    margin-top: 1.5em
+
+.container
+  display: grid
+  grid-template-columns: [myname] 3fr [contentA] 3fr 1fr [contentB] 3fr
+  grid-template-rows: repeat(3,auto)
+  grid-gap: 1.25em
+  
+  
   
   
