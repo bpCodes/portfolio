@@ -10,9 +10,10 @@ const Navigation = () => (
         x
       </div>
       <ul className={style.list}>
-        <li className={style.item}><NavLink to="/home">Work</NavLink></li>
+        <li className={style.item}><NavLink to="/">Home</NavLink></li>
+        <li className={style.item}><NavLink to="/portfolio">Work</NavLink></li>
         <li className={style.item}><NavLink to="/about">About</NavLink></li>
-        <li className={style.item}><NavLink to="/name">Playground</NavLink></li>
+        <li className={style.item}><NavLink to="/portfolio">Playground</NavLink></li>
       </ul>
     </nav>
   </header>

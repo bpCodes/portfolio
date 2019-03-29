@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { hot } from 'react-hot-loader'
 import { Switch, Route } from 'react-router-dom'
-import HelloWorld from './components/hello-world'
-import NameDescription from './components/NameDescription'
+
 import Navigation from './components/menu'
+import Home from './components/home'
 import About from './components/about'
+import Portfolio from './components/portfolio'
 import style from './App.sass'
 
 class App extends Component {
@@ -15,15 +16,12 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className= {style.container}>
         <Navigation />
-        <Switch className= {style.container} >
-          <Route
-            path="/home"
-            render={props => <HelloWorld {...props} title="Hello World"/>}/>
-          <Route path="/name" component={NameDescription} />
+        <Switch >
+          <Route exact path="/" component={Home}/>
           <Route path="/about" component={About} />
-          <Route path="/about" component={About} />
+          <Route path="/portfolio" component={Portfolio} />
         </Switch>
       </div>
     )

@@ -1,0 +1,22 @@
+{
+  "project": [
+    {
+      "link": "design",
+      "title": "Design Process",
+      "images": "./images/caballo.jpg",
+      "description": "Este diseno fue establecido para dar un toque de rescura laojjrannmejoa cosas como esta son para testear"
+    },
+    {
+      "link": "color",
+      "title": "Colores",
+      "images": "./images/caballo.jpg",
+      "description": "Este diseno fue establecido para dar un toque de rescura laojjrannmejoa cosas como esta son para testear"
+    },
+    {
+      "link": "screen",
+      "title": "Screens",
+      "images": "./images/caballo.jpg",
+      "description": "Este diseno fue establecido para dar un toque de rescura laojjrannmejoa cosas como esta son para testear"
+    }
+  ]
+}
