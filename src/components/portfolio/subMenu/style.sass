@@ -1,4 +1,32 @@
+.list 
+  position: fixed
+  top: calc(50vh - 5.375em)
+  right: 10%
+  margin: 0
+  padding: 0
+  list-style-type: none
+  .item
+    padding: 1em
+    &::after
+      content: ''
+      display: block
+      width: 0
+      height: 3px
+      background: rgba(166, 234, 231,1)
+      transition: width .8s 
 
-.list
-  grid-column: 4/-1
-  background-color: #fff
+    &:hover::after
+      
+      width: 100%  
+    
+
+    a
+      text-decoration: none
+      padding: .5em
+      display: inline-block
+    
+    
+.active  
+  border-bottom: 2px solid rgba(166, 234, 231,1)
+ 
+        

@@ -1,9 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500,800')
+@font-face 
+    font-family: 'Bodoni* 11'
+    
+    src: url('subset-Bodoni-11-Book.woff2') format('woff2'),url('subset-Bodoni-11-Book.woff') format('woff')
+    font-weight: normal
+    font-style: normal
+
+
+
 \:root
   box-sizing: border-box
   --bg-color: #E2FFEC
 
 *, ::before, ::after
   box-sizing: inherit
+
+h1,h2,h3,ul
+  font-family: 'Montserrat', sans-serif  
+p
+  font-family: 'Bodoni* 11'
+  font-weight: normal
+  font-style: normal
+
+h1
+  font-size: 3em
 
 body
   background-color: var(--bg-color)
@@ -13,14 +33,11 @@ body
   width: 90%
   max-height: 100vh
   min-height: 100vh
-  * + *
-    margin-top: 1.5em
+  margin-top: 0
+  
 
-.container
-  display: grid
-  grid-template-columns: [myname] 3fr [contentA] 3fr 1fr [contentB] 3fr
-  grid-template-rows: repeat(3,auto)
-  grid-gap: 1.25em
+
+
   
   
   

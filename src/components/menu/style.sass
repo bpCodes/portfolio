@@ -1,13 +1,16 @@
-header,nav
-  grid-column: span 4
 
-nav
+.menu
   display: flex
+  width: 100%
+  //box-shadow: 0 10px 40px -10px rgba(0, 0, 0,.50)
+  box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.16)
+  background-color: #f9f9f9
+
 .list
   display: flex
   flex: 2
   padding: .5em
-  background-color: #a2d7ab
+  background-color: #f9f9f9
   list-style-type: none
   margin: 0  
   li
@@ -32,4 +35,9 @@ nav
   font-size: 1.375em
   justify-content: center
   align-items: center
+  font-family: 'Montserrat', sans-serif
+  font-weight: medium
 
+.active
+  border-bottom: 3px solid orangered
+  border-bottom-color: blue

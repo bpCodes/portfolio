@@ -1,7 +1,12 @@
 import React from 'react'
+import style from './style.sass'
 
 const Name = () => <h2>Alberto</h2>
-const Description = () => <p >Lorem  fugiat, aliquid asperiores facere?</p>
+const Description = () => (
+  <p className={style.description}>
+    Lorem  fugiat, aliquid asperiores facere?
+  </p>
+)
 const Skills = () => (
   <ul className="skill-list">
     <li className="item">JAvascript</li>
@@ -15,10 +20,10 @@ const Skills = () => (
 
 export default function about() {
   return (
-    <React.Fragment>
+    <div className={style.container}>
       <Name />
       <Description />
       <Skills />
-    </React.Fragment>
+    </div>
   )
 }

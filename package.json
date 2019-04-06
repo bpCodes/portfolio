@@ -55,6 +55,7 @@
     "react": "16.7.0",
     "react-dom": "16.7.0",
     "react-hot-loader": "4.6.3",
+    "react-intersection-observer": "^8.22.5",
     "react-router-dom": "^5.0.0",
     "react-router-hash-link": "^1.2.1",
     "uuid": "^3.3.2"
