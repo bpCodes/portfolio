@@ -13,13 +13,41 @@
   background-color: #f9f9f9
   list-style-type: none
   margin: 0  
+  ul
+    margin: 0
   li
     margin-top: 0%
+    text-align: center
+    
     
     a
       text-decoration: none
       display: block
       padding: .5em 1em
+      &::after
+        content: ''
+        display: block
+        margin: 0 auto
+        width: 0
+        height: 3px
+        background: rgba(166, 234, 231,1)
+        transition: width .8s 
+      &:hover::after      
+        width: 50%  
+      &:visited
+        color: #5c5c5c
+      &:link
+        color: #5c5c5c
+    .active
+      &::after
+        content: ''
+        display: block
+        margin: 0 auto
+        width: 50%
+        height: 3px
+        background: rgba(166, 234, 231,1)
+        transition: width .8s 
+
   li + li
     margin-right: 1.5em
     
@@ -37,7 +65,7 @@
   align-items: center
   font-family: 'Montserrat', sans-serif
   font-weight: medium
+  
+  
+  
 
-.active
-  border-bottom: 3px solid orangered
-  border-bottom-color: blue

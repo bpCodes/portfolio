@@ -13,8 +13,8 @@ const SubMenu = () => (
           pathname: document.location.pathname + document.location.hash,
         }}
         smooth
-        to="/projects/portfolio#mockup">
-        Mockup
+        to="/projects/portfolio#design">
+        Design
       </NavLink>
     </li>
     <li className={style.item}>
@@ -35,19 +35,8 @@ const SubMenu = () => (
           pathname: document.location.pathname + document.location.hash,
         }}
         smooth
-        to="/projects/portfolio#tipografia">
-        Tipografia
-      </NavLink>
-    </li>
-    <li className={style.item}>
-      <NavLink
-        activeClassName={style.active}
-        location={{
-          pathname: document.location.pathname + document.location.hash,
-        }}
-        smooth
         to="/projects/portfolio#screen">
-        Pantallas
+        Screen
       </NavLink>
     </li>
   </ul>

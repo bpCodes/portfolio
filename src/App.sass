@@ -2,39 +2,52 @@
 @font-face 
     font-family: 'Bodoni* 11'
     
-    src: url('subset-Bodoni-11-Book.woff2') format('woff2'),url('subset-Bodoni-11-Book.woff') format('woff')
+    src: local('Bodoni* 11 Book'), local('Bodoni-11-Book'),url('subset-Bodoni-11-Book.woff2') format('woff2'),url('subset-Bodoni-11-Book.woff') format('woff')
     font-weight: normal
     font-style: normal
+@font-face 
+    font-family: 'Bodoni* 11'
+    src:local('Bodoni* 11 Medium'), local('Bodoni-11-Medium'),url('subset-Bodoni-11-Medium.woff2') format('woff2'),url('subset-Bodoni-11-Medium.woff') format('woff')
+    font-weight: 500
+    font-style: normal
+
 
 
 
 \:root
   box-sizing: border-box
   --bg-color: #E2FFEC
+  //--bg-color: rgba(244, 244, 244, 0.984)
 
 *, ::before, ::after
   box-sizing: inherit
 
 h1,h2,h3,ul
   font-family: 'Montserrat', sans-serif  
+  color: #333
+h2
+  text-align: center
 p
-  font-family: 'Bodoni* 11'
+  font-family: 'Bodoni* 11', serif
   font-weight: normal
+  color: #707070
   font-style: normal
-
+  word-break: break-word
+  line-height: calc(1.5em + .2vw)
+  font-size: calc(18px + .25vw)
 h1
   font-size: 3em
+  
 
 body
   background-color: var(--bg-color)
   font-family: Arial, Helvetica, sans-serif
   margin: 0 auto
-  font-size: 16px
-  width: 90%
+  font-size: 18px
   max-height: 100vh
   min-height: 100vh
   margin-top: 0
-  
+
 
 
 

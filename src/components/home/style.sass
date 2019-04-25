@@ -4,11 +4,17 @@
   align-items: stretch
   align-content: center
   min-height: calc(100vh - 5.375em)
-  background-image: './trazado.svg'
+  background-image: url('./trazado.svg')
+  background-repeat: no-repeat
+  background-size: 100vh
+  background-position-x: -2em
+  
+  margin: 0 auto
 
 .name
   flex: 0 1 35%
   width: 100%
+  margin-left: 2.5vw
   
   align-self: center
 
@@ -17,3 +23,14 @@
   margin-left: 1em
   align-self: center
   width: 100%
+  margin-right: 2.5vw
+
+@media (max-width: 767px)
+  .container
+    flex-direction: column
+    width: 90%
+    background-image: none
+    .work
+      margin: 0
+    .name
+      margin: 0

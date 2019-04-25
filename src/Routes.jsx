@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { hot } from 'react-hot-loader'
 import { Switch, Route } from 'react-router-dom'
 
@@ -6,9 +6,11 @@ import Navigation from './components/menu'
 import Home from './components/home'
 import About from './components/about'
 import Portfolio from './components/portfolio'
+import Venta from './components/venta'
+import Work from './components/work'
 import './App.sass'
 
-class App extends Component {
+class App extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {}
@@ -16,12 +18,14 @@ class App extends Component {
 
   render() {
     return (
-      <div >
+      <div>
         <Navigation />
-        <Switch >
-          <Route exact path="/" component={Home}/>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/work" component={Work} />
           <Route exact path="/about" component={About} />
-          <Route exact path="/portfolio" component={Portfolio} />
+          <Route exact path="/projects/portfolio" component={Portfolio} />
+          <Route exact path="/projects/sistema-venta" component={Venta} />
         </Switch>
       </div>
     )
