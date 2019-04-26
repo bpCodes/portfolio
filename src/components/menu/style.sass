@@ -1,10 +1,19 @@
 
+@function circumference($r)
+  $pi: 3.141592653
+  @return 2*$pi*$r
+.head
+  height: 100% !important
+  
 .menu
   display: flex
   width: 100%
   //box-shadow: 0 10px 40px -10px rgba(0, 0, 0,.50)
   box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.16)
   background-color: #f9f9f9
+  &__toggle
+    visibility: hidden 
+    display: none
 
 .list
   display: flex
@@ -18,6 +27,8 @@
   li
     margin-top: 0%
     text-align: center
+  
+
     
     
     a
@@ -48,8 +59,7 @@
         background: rgba(166, 234, 231,1)
         transition: width .8s 
 
-  li + li
-    margin-right: 1.5em
+  
     
 .logo
   font-size: 1em
@@ -65,7 +75,163 @@
   align-items: center
   font-family: 'Montserrat', sans-serif
   font-weight: medium
+
+// Mobile 
+
+  
+@media (max-width: 768px)
+  .menu
+    flex-direction: column
+    // Toggle Button
+    &__toggle 
+      display: inline-block 
+      position: absolute 
+      z-index: 10 
+      padding: 0 
+      border: 0 
+      background:transparent 
+      outline: 0 
+      right: 1.5em
+      top: 1.5em
+      cursor: pointer 
+      visibility: visible
+      border-radius: 50% 
+      transition:background-color .15s linear       
+      &:hover,
+      &:focus 
+        background-color: rgba(0,0,0,.5)      
+    
+    .list
+      
+      flex-direction: column
+      justify-content: center  
+      position: relative  
+      height: 560px
+      z-index: 5
+      background-color: transparent 
+      visibility: hidden
+      display: none
+      .item
+
+        margin: 0
+        opacity: 0
+        transition: all .3s cubic-bezier(0.000, 0.995, 0.990, 1.000) .3s      
+    
+        @for $i from 1 through 5 
+          &__item:nth-child(#{$i})
+            transform:translateY(-40px * $i)
+     
+    .logo
+      margin: 0 auto
+      flex: 0
+  
+// ---------------------------
+// SVG Menu Icon
+// ---------------------------
+
+.menuicon 
+  display: block  
+  cursor: pointer  
+  color: black  
+  
+  transform: rotate(0deg)  
+  transition: .3s cubic-bezier(0.165, 0.840, 0.440, 1.000)   
+  
+  &__bar,
+  &__circle 
+    fill: none  
+    stroke: currentColor  
+    stroke-width: 3  
+    stroke-linecap: round  
+  
+  &__bar 
+    transform: rotate(0deg)  
+    transform-origin: 50% 50%  
+    transition: transform .25s ease-in-out  
+  
+  &__circle 
+    transition: stroke-dashoffset .3s linear .1s  
+    stroke-dashoffset: circumference(23)   // 23 is the <circle>'s radius
+    stroke-dasharray: circumference(23)  
+  
+.splash 
+  position: absolute  
+  top: 40px  
+  right: 40px  
+  width: 1px  
+  height: 1px  
+  
+  &::after 
+    content: ""  
+    display: block  
+    position: absolute  
+    border-radius: 50%  
+    background-color: white  
+    
+    // screen diameter can be 142vmax at most,
+    // circle needs to be twice that size to cover it
+    width: 284vmax  
+    height: 284vmax  
+    top: -142vmax  
+    left: -142vmax  
+    
+    transform: scale(0)  
+    transform-origin: 50% 50%  
+    transition: transform .5s cubic-bezier(0.755, 0.050, 0.855, 0.060)  
+    
+    // will-change tells the browser we plan to 
+    // animate this property in the near future
+    will-change: transform  
+  
+// ---------------------------
+// Active State
+// ---------------------------
+
+.menu:target,
+.navOpen 
+  
+  //scale the background circle to full size
+  > .splash::after 
+    transform: scale(1)  
   
   
+  //animate the menu icon
+  .menuicon 
+    color: #333  
+    transform: rotate(180deg)  
+    
+    &__circle 
+      stroke-dashoffset: 0  
+    
+    &__bar:nth-child(1),
+    &__bar:nth-child(4) 
+      opacity: 0  
+    
+    &__bar:nth-child(2) 
+      transform: rotate(45deg)  
   
+    &__bar:nth-child(3) 
+      transform: rotate(-45deg)
+  //show the nav items
+.menu:target
+.navOpen
+  .list 
+    visibility: visible 
+    display: flex
+    flex-direction: column
+    min-height: 88.5vh
+        
+
+    .item
+      
+      opacity: 1
+      transform: translateY(0)
+
+  
+  
+    
+  
+  
+
+
 

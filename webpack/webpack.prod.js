@@ -1,6 +1,6 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const commonPaths = require('./paths');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const commonPaths = require('./paths')
 
 module.exports = {
   mode: 'production',
@@ -39,4 +39,4 @@ module.exports = {
     }),
   ],
   devtool: 'source-map',
-};
+}
