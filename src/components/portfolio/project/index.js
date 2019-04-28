@@ -5,7 +5,7 @@ import React, { useEffect } from 'react'
 import uuidv4 from 'uuid/v4'
 
 import style from './style.sass'
-import DATA from '../data.json'
+// import DATA from '../data.json'
 
 import perico from './perico.jpg'
 import mock1 from './mock1.png'

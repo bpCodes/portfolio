@@ -8,6 +8,7 @@
 .menu
   display: flex
   width: 100%
+  align-items: center
   //box-shadow: 0 10px 40px -10px rgba(0, 0, 0,.50)
   box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.16)
   background-color: #f9f9f9
@@ -22,6 +23,7 @@
   background-color: #f9f9f9
   list-style-type: none
   margin: 0  
+  text-transform: uppercase
   ul
     margin: 0
   li
@@ -44,7 +46,7 @@
         background: rgba(166, 234, 231,1)
         transition: width .8s 
       &:hover::after      
-        width: 50%  
+        width: 60%  
       &:visited
         color: #5c5c5c
       &:link
@@ -54,23 +56,40 @@
         content: ''
         display: block
         margin: 0 auto
-        width: 50%
+        width: 60%
         height: 3px
         background: rgba(166, 234, 231,1)
         transition: width .8s 
 
   
-    
+//Logo  
 .logo
   font-size: 1em
   padding: 2em
   margin-right: auto
   flex: 1
+  position: relative
+  left: 5%
+.svgLogo
+  height: 5vh
+  
+
+
+.cls1
+  fill: #686868
+
+.cls2
+  fill: none
+  stroke: #686868
+  stroke-linecap: round
+  stroke-linejoin: round
+  stroke-width: 10px
+
 
 .item
   flex: 1
   padding: .5em 1em
-  font-size: 1.375em
+  font-size: 1.188em
   justify-content: center
   align-items: center
   font-family: 'Montserrat', sans-serif
@@ -80,6 +99,9 @@
 
   
 @media (max-width: 768px)
+  .logo
+    position: relative
+    left: 0%
   .menu
     flex-direction: column
     // Toggle Button
@@ -92,7 +114,7 @@
       background:transparent 
       outline: 0 
       right: 1.5em
-      top: 1.5em
+      top: 25%
       cursor: pointer 
       visibility: visible
       border-radius: 50% 
@@ -215,6 +237,9 @@
   //show the nav items
 .menu:target
 .navOpen
+  .menu__toggle
+    right: 1.5em
+    top: 2em
   .list 
     visibility: visible 
     display: flex
@@ -227,11 +252,10 @@
       opacity: 1
       transform: translateY(0)
 
+
   
   
     
   
   
-
-
 

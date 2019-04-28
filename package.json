@@ -4,11 +4,10 @@
   "description": "BP Designs Portfolio,Front End",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server --open --host 192.168.1.97",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --open ",
     "build": "cross-env NODE_ENV=production webpack",
     "format": "prettier --write 'packages/**/*.js'",
-    "test": "jest --watchAll --coverage",
-    "precommit": "lint-staged"
+    "test": "jest --watchAll --coverage"
   },
   "lint-staged": {
     "*.{js,jsx,css,md}": [
@@ -128,5 +127,10 @@
     "webpack-dashboard": "^3.0.0",
     "webpack-dev-server": "3.1.14",
     "webpack-merge": "4.2.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }

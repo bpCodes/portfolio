@@ -9,14 +9,11 @@ const Home = () => (
   <section className={style.container}>
     <div className={style.name}>
       <NameDescription />
-
     </div>
     <div className={style.work}>
-
       <Work />
     </div>
   </section>
 )
-
 
 export default Home

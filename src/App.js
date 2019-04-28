@@ -16,10 +16,10 @@ class App extends Component {
 
   render() {
     return (
-      <div className= {style.container}>
+      <div className={style.container}>
         <Navigation />
-        <Switch >
-          <Route exact path="/" component={Home}/>
+        <Switch>
+          <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/portfolio" component={Portfolio} />
         </Switch>
