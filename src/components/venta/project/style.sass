@@ -1,20 +1,110 @@
+@font-face
+  font-family: 'Source Sans Pro'
+  src: local("Source Sans Pro"), local("SourceSansPro-Regular"), url('subset-SourceSansPro-Regular.woff2') format("woff2"), url('subset-SourceSansPro-Regular.woff') format("woff")
+  font-weight: normal
+  font-style: normal
+
+
+@font-face
+  font-family: 'Source Sans Pro'
+  src: local("Source Sans Pro Bold"), local("SourceSansPro-Bold"), url('subset-SourceSansPro-Bold.woff2') format("woff2"), url('subset-SourceSansPro-Bold.woff') format("woff")
+  font-weight: bold
+  font-style: normal
+  
 .container
   text-align: center
 
-.items
-  position: relative
-  min-height: calc(90vh - 6.375em)
-  top: 10%
+  .items
+    position: relative
+    min-height: calc(90vh - 6.375em)
+    top: 10%
 
-.title
-  padding: 2em
+  .subtitle
+    padding: 1em 2em
 
-.description
-  margin-bottom: 2em
-  text-align: left
+  .description
+    
+    text-align: left
 
-.image
-  margin: 0
-  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.16)
-  img
+  .image
+    margin: 0
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.16)
+    margin-top: 2em
     width: 100%
+    img
+      width: 100%
+  .title
+    position: relative
+    min-height: calc(70vh - 6.375em)
+    top: 10%
+.list
+  text-align: left
+  width: 50%
+  margin: 0 auto
+  .item
+    padding: .275em 1em
+
+.screen
+  display: grid
+  grid-template-columns: 1fr 1fr 1fr
+
+.mock1
+  margin-bottom: 1em
+
+.circle
+  width: 100%
+  margin: 0 auto
+  margin-top: 10%
+  display: grid
+  justify-items: center
+  align-items: center
+  grid-template-columns: 1fr 1fr 1fr
+  grid-template-rows: 1fr 1fr 
+  background-color: #fff
+  span
+    height: 12vh
+    width: 12vh
+    background-color: #bbb
+    margin: 1em 2em
+    border-radius: 50%
+    display: inline-block
+    p
+      display: block
+  .bg
+    grid-row: 2
+  .bg1
+    background-color: #D83D3D
+  .letter
+    grid-row: 2
+  .letter1
+    background-color: #707070
+  .principal1
+    background-color: rgba(216,61,61,.8)
+
+.typo
+  width: 80%
+  margin: 0 auto
+  text-align: left
+  margin-top: 5vh
+
+  .sans1
+    font-family: 'Source Sans Pro'
+    font-weight: normal
+    font-style: normal
+  .sans2
+    font-family: 'Source Sans Pro'
+    font-weight: bold
+    font-style: normal
+  
+
+@media (max-width: 768px)
+  .title
+    max-width: 100%
+    min-height: 50%
+
+  .list
+    width: 90%
+  .circle
+    span
+      height: 6vh
+      width: 6vh

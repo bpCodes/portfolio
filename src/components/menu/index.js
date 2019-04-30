@@ -6,7 +6,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import Headroom from 'react-headroom'
 import style from './style.sass'
-import logo from './logo.png'
+// import logo from './logo.png'
 
 class Menu extends React.Component {
   constructor(props) {

@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import style from './style.sass'
-import perico from './perico.jpg'
+import venta from './venta.jpg'
+import portfolio from './portfolio.jpg'
 
 // const Principal = dato.map((data, index) => (
 //   <figure className={style.work} key={index}>
@@ -16,7 +17,7 @@ export default function Work() {
       <div className={style.work1}>
         <Link to="/projects/portfolio">
           <figure className={style.fig}>
-            <img className={style.image} src={perico} alt="" />
+            <img className={style.image} src={portfolio} alt="" />
           </figure>
         </Link>
         <h2 className={style.description}>Portfolio</h2>
@@ -30,7 +31,7 @@ export default function Work() {
       <div className={style.work2}>
         <Link className={style.link} to="/projects/sistema-venta">
           <figure className={style.fig}>
-            <img className={style.image} src={perico} alt="" />
+            <img className={style.image} src={venta} alt="" />
           </figure>
         </Link>
         <h2 className={style.description}>Sistema de ventas</h2>

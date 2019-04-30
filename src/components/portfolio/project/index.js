@@ -7,7 +7,10 @@ import uuidv4 from 'uuid/v4'
 import style from './style.sass'
 // import DATA from '../data.json'
 
-import perico from './perico.jpg'
+import venta from './venta.png'
+import work from './work.png'
+import principal from './principal.png'
+import portfolio from './portfolio.jpg'
 import mock1 from './mock1.png'
 import mock2 from './mock2.png'
 
@@ -106,16 +109,16 @@ const Screen = () => (
   <div className={[style.items, style.screen]} id="screen" key={uuidv4()}>
     <h2 className={style.subtitle}>Screen</h2>
     <figure className={style.image}>
-      <img src={perico} alt="" />
-      <img src={perico} alt="" />
-      <img src={perico} alt="" />
+      <img src={principal} alt="" />
+      <img src={work} alt="" />
+      <img src={venta} alt="" />
     </figure>
   </div>
 )
 const Header = () => (
   <React.Fragment>
-    <figure>
-      <img className={style.title} src={perico} alt="" />
+    <figure className={style.image}>
+      <img className={style.title} src={portfolio} alt="" />
     </figure>
     <ul className={style.list}>
       <li className={style.item}>Rol: Developer</li>

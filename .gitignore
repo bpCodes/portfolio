@@ -10,7 +10,9 @@ coverage
 
 # Logs
 *.log
-
+*.png
+*.woff
+*.woff2
 # npm & yarn
 node_modules/
 .npm
