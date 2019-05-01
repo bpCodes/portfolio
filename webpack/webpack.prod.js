@@ -1,24 +1,26 @@
 // node modules
 
-const path = require('path')
-const webpack = require('webpack')
+// const path = require('path')
+// const webpack = require('webpack')
 
 // webpack plugins
+// eslint-disable-next-line prefer-destructuring
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const CleanWebpackPlugin = require('clean-webpack-plugin')
-const CreateSymlinkPlugin = require('create-symlink-webpack-plugin')
+// const CreateSymlinkPlugin = require('create-symlink-webpack-plugin')
 // const CriticalCssPlugin = require('critical-css-webpack-plugin')
-const HtmlCriticalWebpackPlugin = require('html-critical-webpack-plugin')
+// const HtmlCriticalWebpackPlugin = require('html-critical-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
+// const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const PurgecssPlugin = require('purgecss-webpack-plugin')
-const SaveRemoteFilePlugin = require('save-remote-file-webpack-plugin')
+// const PurgecssPlugin = require('purgecss-webpack-plugin')
+// const SaveRemoteFilePlugin = require('save-remote-file-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const WebappWebpackPlugin = require('webapp-webpack-plugin')
-const WhitelisterPlugin = require('purgecss-whitelister')
+// const WhitelisterPlugin = require('purgecss-whitelister')
 const WorkboxPlugin = require('workbox-webpack-plugin')
+const Critters = require('critters-webpack-plugin')
 
 
 const commonPaths = require('./paths')
@@ -36,11 +38,30 @@ const configureTerser = () => ({
 })
 
 const configureOptimization = () => {
-  return { minimizer: [new TerserPlugin(configureTerser())] }
+  return {
+    splitChunks: {
+      chunks: 'all',
+    },
+    minimizer: [
+      new TerserPlugin(
+        configureTerser(),
+      ),
+      new OptimizeCSSAssetsPlugin({
+        cssProcessorOptions: {
+          map: {
+            inline: false,
+            annotation: true,
+          },
+          safe: true,
+          discardComments: true,
+        },
+      }),
+    ],
+  }
 }
 // Configure Webapp webpack
 const configureWebapp = () => ({
-  logo: '../src/logo.png',
+  logo: './src/logo.png',
   prefix: commonPaths.favicon,
   cache: false,
   inject: 'force',
@@ -93,32 +114,24 @@ module.exports = {
       verbose: true,
       dry: false,
     }),
+
     new MiniCssExtractPlugin({
       filename: `${commonPaths.cssFolder}/[name].css`,
       chunkFilename: '[id].css',
     }),
+    new Critters({
+      // Outputs: <link rel="preload" onload="this.rel='stylesheet'">
+      preload: 'swap',
+    }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: 'index.html',
+      template: '!!prerender-loader?string!./src/template.html',
       inject: true,
     }),
     new WebappWebpackPlugin(configureWebapp()),
-    new CreateSymlinkPlugin(commonPaths.createSymlinkConfig, true),
+    // new CreateSymlinkPlugin(commonPaths.createSymlinkConfig, true),
     new WorkboxPlugin.GenerateSW(configureWorkbox()),
     new BundleAnalyzerPlugin(configureBundleAnalyzer()),
-    new HtmlCriticalWebpackPlugin({
-      base: path.resolve(__dirname, 'dist'),
-      src: 'index.html',
-      dest: 'index.html',
-      inline: true,
-      minify: true,
-      extract: true,
-      width: 375,
-      height: 565,
-      penthouse: {
-        blockJSRequests: false,
-      },
-    }),
   ],
   devtool: 'source-map',
 }

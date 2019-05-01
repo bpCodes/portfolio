@@ -1,6 +1,8 @@
 /* eslint-disable max-len */
 /* eslint-disable react/prop-types */
-import React, { useEffect } from 'react'
+import React from 'react'
+// import Observer from '@researchgate/react-intersection-observer'
+import { InView } from 'react-intersection-observer'
 
 import uuidv4 from 'uuid/v4'
 
@@ -14,31 +16,6 @@ import portfolio from './portfolio.jpg'
 import mock1 from './mock1.png'
 import mock2 from './mock2.png'
 
-// Component that attaches scroll to top hanler on router change
-// renders nothing, just attaches side effects
-export const ScrollToTopControlller = () => {
-  // this assumes that current router state is accessed via hook
-  // but it does not matter, pathname and search (or that ever) may come from props, context, etc.
-
-  // just run the effect on pathname and/or search change
-  useEffect(() => {
-    try {
-      // trying to use new API - https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollTo
-      window.scroll({
-        top: 0,
-        left: 0,
-        behavior: 'smooth',
-      })
-    } catch (error) {
-      // just a fallback for older browsers
-      window.scrollTo(0, 0)
-    }
-  })
-
-  // renders nothing, since nothing is needed
-  return null
-}
-
 const MockUp = () => (
   <div className={style.items} id="mockup" key={uuidv4()}>
     <h2 className={style.subtitle}>MockUp</h2>
@@ -49,10 +26,16 @@ const MockUp = () => (
       horizontal ya que les hace ver todo el contenido con más facilidad ya que
       no se debe hacer scroll y te invita a investigar más la página.
     </p>
-    <figure className={style.image}>
-      <img className={style.mock1} src={mock1} alt="" />
-      <img src={mock2} alt="" />
-    </figure>
+      
+    <InView>
+      {({ inView, ref }) => (
+        <figure ref={ref} className={style.image}>
+          <h2>{`Header inside viewport ${inView}.`}</h2>
+          <img className={style.mock1} src={mock1} alt="" />
+          <img src={mock2} alt="" />
+        </figure>
+      )}
+    </InView>
   </div>
 )
 const Color = () => (

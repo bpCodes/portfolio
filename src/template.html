@@ -3,11 +3,78 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Accept-CH" content="DPR, Width, Viewport-Width">
     <title>Webpack react boilerplate</title>
+    <style>
+        @font-face {
+        font-family: 'Bodoni* 11';
+        src: local("Bodoni* 11 Book"), local("Bodoni-11-Book"),
+        url("http://localhost:8080/fonts/289f9c6e122b457dccf8ffab480b5f8b.woff2") format("woff2"),
+        url("http://localhost:8080/fonts/4fa8c87d8ac4457182420050c076404e.woff") format("woff");
+        font-weight: normal;
+        font-style: normal; }
+
+        @font-face {
+        font-family: 'Bodoni* 11';
+        src: local("Bodoni* 11 Medium"), local("Bodoni-11-Medium"),
+        url("http://localhost:8080/fonts/497e19f4581d9106f3cc40fb1fce7f1a.woff2") format("woff2"),
+        url("http://localhost:8080/fonts/46bc3ae844ab7d3d96ad451bc6496abb.woff") format("woff");
+        font-weight: 500;
+        font-style: normal; }
+
+        @font-face {
+        font-family: 'Montserrat';
+        src: local("Montserrat Medium"), local("Montserrat-Medium"),
+        url("http://localhost:8080/fonts/9cf8ce13da8ac8db4ef7d48847e55ea4.woff2") format("woff2"),
+        url("http://localhost:8080/fonts/655db1030dbc00a92182dfb70d2d15f7.woff") format("woff");
+        font-weight: 500;
+        font-style: normal; }
+
+        @font-face {
+        font-family: 'Montserrat';
+        src: local("Montserrat ExtraBold"), local("Montserrat-ExtraBold"),
+        url("http://localhost:8080/fonts/e924aaa22213d64a37e6200163479f8b.woff2") format("woff2"),
+        url("http://localhost:8080/fonts/d74856a4c51b249e88e7a28cb374ca3b.woff") format("woff");
+        font-weight: 800;
+        font-style: normal; }
+        	body {
+        	font-family: sans-serif;
+            }
+        	.fonts-loaded-1 body {
+        	font-family: 'Montserrat';
+        	}
+        	.fonts-loaded-2 body {
+        	font-family: 'Bodoni* 11';
+        	}
+    </style>
+    <script>
+        (function () {
+            if ("fonts" in document) {
+                // Optimization for Repeat Views
+                if (sessionStorage.fontsLoadedCriticalFoftPreload) {
+                    document.documentElement.className += " fonts-loaded-2";
+                    return;
+                }
+                document.fonts.load("1em LatoSubset").then(function () {
+                    document.documentElement.className += " fonts-loaded-1";
+                    Promise.all([
+                        document.fonts.load("400 1em Bodoni* 11"),
+                        document.fonts.load("500 1em Bodoni* 11"),
+                        document.fonts.load("500 1em Montserrat"),
+                        document.fonts.load("800 1em Montserrat")
+                    ]).then(function () {
+                        document.documentElement.className += " fonts-loaded-2";
+                        // Optimization for Repeat Views
+                        sessionStorage.fontsLoadedCriticalFoftPreload = true;
+                    });
+                });
+            }
+        })();
+    </script>
 </head>
 <body>
 <noscript>
-    You need to enable JavaScript to run this app.
+    You need to enable JavaSssscriptt to run this app.
 </noscript>
 
 <div id="app"></div>

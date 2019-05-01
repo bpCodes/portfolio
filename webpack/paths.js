@@ -14,14 +14,12 @@ module.exports = {
   workboxConfig: {
     swDest: '../sw.js',
     precacheManifestFilename: 'js/precache-manifest.[manifestHash].js',
-    importScripts: ['/build/workbox-catch-handler.js'],
+    importScripts: ['/src/workbox-catch-handler.js'],
     exclude: [
       /\.(png|jpe?g|gif|svg|webp)$/i,
       /\.map$/,
       /^manifest.*\\.js(?:on)?$/,
     ],
-    globDirectory: './web/',
-    globPatterns: ['offline.html', 'offline.svg'],
     offlineGoogleAnalytics: true,
     runtimeCaching: [
       {

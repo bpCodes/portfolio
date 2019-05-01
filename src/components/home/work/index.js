@@ -7,9 +7,9 @@ import portfolio from './portfolio.jpg'
 // const Principal = dato.map((data, index) => (
 //   <figure className={style.work} key={index}>
 //     <img src={data.url} alt="" />
-//     <small>{data.name}</small>
-//   </figure>
-// ))
+//     <small>{data.name}</small> <img className={style.image} src="https://ik.imagekit.io/bpdesigns/Portfolio/work/tr:w-auto-400,ar-1-1,fo-auto/venta_SydRTrLiV.jpg" alt="" sizes="100%"/>
+//   </figure>  <img className={style.image} src="https://ik.imagekit.io/bpdesigns/Portfolio/work/tr:w-auto-400,ar-1-1,fo-auto/portfolio_S10ATHIj4.jpg" alt="" sizes="100%" />
+// ))   <img className={style.image} src={portfolio} alt="" />
 
 export default function Work() {
   return (
@@ -18,6 +18,7 @@ export default function Work() {
         <Link to="/projects/portfolio">
           <figure className={style.fig}>
             <img className={style.image} src={portfolio} alt="" />
+            
           </figure>
         </Link>
         <h2 className={style.description}>Portfolio</h2>
