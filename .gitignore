@@ -9,6 +9,7 @@ coverage
 .eslintcache
 
 # Logs
+*.rar
 *.log
 *.png
 *.woff
