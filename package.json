@@ -1,7 +1,7 @@
 {
   "name": "@Bpcode/BP-Designs-Portfolio",
   "version": "1.0.0",
-  "description": "BP Designs Portfolio,Front End",
+  "description": "Alberto Perez Portfolio,Front End",
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --open ",
@@ -48,19 +48,14 @@
     "npm": ">=3"
   },
   "dependencies": {
-    "@researchgate/react-intersection-observer": "^0.7.4",
-    "axios": "^0.18.0",
-    "preact": "^8.4.2",
-    "preact-compat": "^3.18.5",
-    "prop-types": "15.6.2",
     "react": "16.8.0",
     "react-dom": "16.8.0",
+    "react-ga": "^2.5.7",
     "react-headroom": "^2.2.8",
     "react-hot-loader": "4.6.3",
     "react-intersection-observer": "^8.22.5",
     "react-router-dom": "^5.0.0",
-    "react-router-hash-link": "^1.2.1",
-    "uuid": "^3.3.2"
+    "react-router-hash-link": "^1.2.1"
   },
   "resolutions": {
     "babel-core": "7.0.0-bridge.0"
@@ -82,13 +77,14 @@
     "@babel/preset-react": "7.0.0",
     "@babel/register": "7.0.0",
     "@babel/runtime": "7.2.0",
+    "@gfx/zopfli": "^1.0.11",
     "babel-core": "7.0.0-beta.3",
     "babel-eslint": "10.0.1",
     "babel-jest": "23.6.0",
     "babel-loader": "8.0.5",
-    "babel-plugin-lodash": "3.3.4",
     "browserslist": "4.3.7",
     "clean-webpack-plugin": "1.0.0",
+    "compression-webpack-plugin": "^2.0.0",
     "connect-history-api-fallback": "^1.5.0",
     "create-symlink-webpack-plugin": "^1.0.1",
     "critters-webpack-plugin": "^2.3.0",

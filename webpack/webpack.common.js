@@ -65,9 +65,10 @@ module.exports = {
     new DashboardPlugin(),
     new HtmlWebpackPlugin({
       template: commonPaths.templatePath,
+      inject: 'head',
     }),
     new ScriptExtHtmlWebpackPlugin({
-      defaultAttribute: 'async',
+      defaultAttribute: 'defer',
     }),
   ],
 }

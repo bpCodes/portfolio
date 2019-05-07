@@ -1,13 +1,14 @@
 import React, { PureComponent } from 'react'
-import { hot } from 'react-hot-loader'
-import { Switch, Route } from 'react-router-dom'
-
+// import { hot } from 'react-hot-loader'
+import { Switch, Route, Redirect } from 'react-router-dom'
+import withTracker from './components/helper/withTracker'
 import Navigation from './components/menu'
 import Home from './components/home'
 import About from './components/about'
 import Portfolio from './components/portfolio'
 import Venta from './components/venta'
 import Work from './components/work'
+import NoMatch from './components/404'
 import './App.sass'
 
 class App extends PureComponent {
@@ -21,15 +22,24 @@ class App extends PureComponent {
       <div>
         <Navigation />
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/work" component={Work} />
-          <Route exact path="/about" component={About} />
-          <Route exact path="/projects/portfolio" component={Portfolio} />
-          <Route exact path="/projects/sistema-venta" component={Venta} />
+          <Route exact path="/" component={withTracker(Home)} />
+          <Route exact path="/work" component={withTracker(Work)} />
+          <Route exact path="/about" component={withTracker(About)} />
+          <Route
+            exact
+            path="/projects/portfolio"
+            component={withTracker(Portfolio)}/>
+          <Route
+            exact
+            path="/projects/sistema-venta"
+            component={withTracker(Venta)}/>
+          <Route component={NoMatch}>
+            <Redirect to="/" />
+          </Route>
         </Switch>
       </div>
     )
   }
 }
 
-export default hot(module)(App)
+export default App

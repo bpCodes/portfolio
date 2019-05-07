@@ -12,19 +12,21 @@ module.exports = {
   jsFolder: 'js',
 
   workboxConfig: {
-    swDest: '../sw.js',
-    precacheManifestFilename: 'js/precache-manifest.[manifestHash].js',
-    importScripts: ['/src/workbox-catch-handler.js'],
-    exclude: [
-      /\.(png|jpe?g|gif|svg|webp)$/i,
-      /\.map$/,
-      /^manifest.*\\.js(?:on)?$/,
-    ],
+    swDest: 'sw.js',
+    clientsClaim: true,
+    skipWaiting: true,
+    // precacheManifestFilename: 'js/precache-manifest.[manifestHash].js',
+    // importScripts: ['/build/workbox-catch-handler.js'],
+    // exclude: [
+    //   /\.(png|jpe?g|gif|svg|webp)$/i,
+    //   /\.map$/,
+    //   /^manifest.*\\.js(?:on)?$/,
+    // ],
     offlineGoogleAnalytics: true,
     runtimeCaching: [
       {
-        urlPattern: /\.(?:png|jpg|jpeg|svg|webp)$/,
-        handler: 'cacheFirst',
+        urlPattern: new RegExp('https://bpdesigns.me'),
+        handler: 'StaleWhileRevalidate',
         options: {
           cacheName: 'images',
           expiration: {

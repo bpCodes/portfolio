@@ -1,20 +1,13 @@
 /* eslint-disable max-len */
 /* eslint-disable react/prop-types */
 import React from 'react'
-// import Observer from '@researchgate/react-intersection-observer'
-import { InView } from 'react-intersection-observer'
-
 import uuidv4 from 'uuid/v4'
+// import ViewableMonitor from '../../helper/ViewableMonitor'
+// import Observer from '@researchgate/react-intersection-observer'
+// import { InView } from 'react-intersection-observer'
 
 import style from './style.sass'
-// import DATA from '../data.json'
-
-import venta from './venta.png'
-import work from './work.png'
-import principal from './principal.png'
-import portfolio from './portfolio.jpg'
-import mock1 from './mock1.png'
-import mock2 from './mock2.png'
+// import DATA from '../data.jso
 
 const MockUp = () => (
   <div className={style.items} id="mockup" key={uuidv4()}>
@@ -26,16 +19,20 @@ const MockUp = () => (
       horizontal ya que les hace ver todo el contenido con más facilidad ya que
       no se debe hacer scroll y te invita a investigar más la página.
     </p>
-      
-    <InView>
-      {({ inView, ref }) => (
-        <figure ref={ref} className={style.image}>
-          <h2>{`Header inside viewport ${inView}.`}</h2>
-          <img className={style.mock1} src={mock1} alt="" />
-          <img src={mock2} alt="" />
-        </figure>
-      )}
-    </InView>
+
+    <figure className={style.image}>
+      {/* <img className={style.mock1} src={mock1} alt="" /> */}
+      <img
+        className={style.mock1}
+        src="https://ik.imagekit.io/bpdesigns/Portfolio/project1/tr:w-auto,ar-1-1,pr-true/mock1_rJ0uTHIiE.png"
+        alt="MockUp de mi portfolio"
+        sizes="100%"/>
+      {/* <img src={mock2} alt="" /> */}
+      <img
+        src="https://ik.imagekit.io/bpdesigns/Portfolio/project1/tr:w-auto,ar-1-1,pr-true/mock2_rkk8pSLjN.png"
+        alt="Segundo mockup de mi portfolio"
+        sizes="100%"/>
+    </figure>
   </div>
 )
 const Color = () => (
@@ -92,16 +89,33 @@ const Screen = () => (
   <div className={[style.items, style.screen]} id="screen" key={uuidv4()}>
     <h2 className={style.subtitle}>Screen</h2>
     <figure className={style.image}>
-      <img src={principal} alt="" />
-      <img src={work} alt="" />
-      <img src={venta} alt="" />
+      {/* <img src={principal} alt="" /> */}
+      <img
+        src="https://ik.imagekit.io/bpdesigns/Portfolio/project1/tr:w-auto,ar-1-1,pr-true/principal_BJeP6HLs4.png"
+        alt="Imagen principal de mi portfolio"
+        sizes="100%"/>
+      {/* <img src={work} alt="" /> */}
+      <img
+        src="https://ik.imagekit.io/bpdesigns/Portfolio/project1/tr:w-auto,ar-1-1,pr-true/work_HJQD6r8sN.png"
+        alt="Imagen de la pagina donde se muestra mi trabajo"
+        sizes="100%"/>
+      {/* <img src={venta} alt="" /> */}
+      <img
+        src="https://ik.imagekit.io/bpdesigns/Portfolio/project1/tr:w-auto,ar-1-1,pr-true/venta_r1A8aB8iE.png"
+        alt="Ejemplo de un proyecto de ventas"
+        sizes="100%"/>
     </figure>
   </div>
 )
 const Header = () => (
   <React.Fragment>
     <figure className={style.image}>
-      <img className={style.title} src={portfolio} alt="" />
+      {/* <img className={style.title} src={portfolio} alt="" /> */}
+      <img
+        className={style.title}
+        src="https://ik.imagekit.io/bpdesigns/Portfolio/work/tr:w-auto,ar-1-1/portfolio_S10ATHIj4.jpg"
+        alt="Imagen principal mostrando algunas pantallas del proyecto"
+        sizes="13.188em"/>
     </figure>
     <ul className={style.list}>
       <li className={style.item}>Rol: Developer</li>

@@ -22,3 +22,4 @@ export default () => {
     document.getElementById('app'),
   )
 }
+// serviceWorker.unregister()

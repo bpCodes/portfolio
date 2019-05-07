@@ -2,15 +2,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import style from './style.sass'
-import portfolio from './portfolio.jpg'
-import venta from './venta.jpg'
 
 const Projects = () => (
   <React.Fragment>
     <article className={style.project}>
       <figure className={style.image}>
         <Link className={style.link} to="/projects/portfolio">
-          <img src={portfolio} alt="" />
+          {/* <img src={portfolio} alt="" /> */}
+          <img
+            className={style.image}
+            src="https://ik.imagekit.io/bpdesigns/Portfolio/work/tr:w-auto,ar-1-1,fo-auto/portfolio_S10ATHIj4.jpg"
+            alt="Portada de Portfolio"
+            sizes="100%"/>
         </Link>
       </figure>
       <div className={style.description}>
@@ -25,7 +28,12 @@ const Projects = () => (
     <article className={style.project}>
       <figure className={style.image}>
         <Link className={style.link} to="/projects/sistema-venta">
-          <img src={venta} alt="" />
+          {/* <img src={venta} alt="" /> */}
+          <img
+            className={style.image}
+            src="https://ik.imagekit.io/bpdesigns/Portfolio/work/tr:w-auto,ar-1-1,fo-auto/venta_SydRTrLiV.jpg"
+            alt="Portada de sistema de venta"
+            sizes="100%"/>
         </Link>
       </figure>
       <div className={style.description}>

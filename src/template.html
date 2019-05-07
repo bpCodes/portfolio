@@ -1,42 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
+    <meta http-equiv="Accept-CH" content="DPR, Width, Viewport-Width">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="Accept-CH" content="DPR, Width, Viewport-Width">
-    <title>Webpack react boilerplate</title>
+    <!-- Primary Meta Tags -->
+    <title>Alberto - Front End & Designer</title>
+    <meta name="title" content="Alberto - Front End & Designer">
+    <meta name="description"
+        content="I'm a front end developer passionate about useful and simple designs based on users. UX / UI">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bpdesigns.me/">
+    <meta property="og:title" content="Alberto - Front End & Designer">
+    <meta property="og:description"
+        content="I'm a front end developer passionate about useful and simple designs based on users. UX / UI">
+    <meta property="og:image" content="">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bpdesigns.me/">
+    <meta property="twitter:title" content="Alberto - Front End & Designer">
+    <meta property="twitter:description"
+        content="I'm a front end developer passionate about useful and simple designs based on users. UX / UI">
+    <meta property="twitter:image" content="">
+
+    <link rel="preload" href="/fonts/subset-Bodoni-11-Medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/subset-Montserrat-ExtraBold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="css/main.css" as="style" onload="this.rel='stylesheet'">
     <style>
         @font-face {
         font-family: 'Bodoni* 11';
-        src: local("Bodoni* 11 Book"), local("Bodoni-11-Book"),
-        url("http://localhost:8080/fonts/289f9c6e122b457dccf8ffab480b5f8b.woff2") format("woff2"),
-        url("http://localhost:8080/fonts/4fa8c87d8ac4457182420050c076404e.woff") format("woff");
         font-weight: normal;
-        font-style: normal; }
+        font-style: normal;
+        font-display: swap; 
+        src: local("Bodoni* 11 Book"), local("Bodoni-11-Book"),
+        url("/fonts/subset-Bodoni-11-Book.woff2") format("woff2"),
+        url("/fonts/subset-Bodoni-11-Book.woff") format("woff");
+        }
 
         @font-face {
         font-family: 'Bodoni* 11';
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap; 
         src: local("Bodoni* 11 Medium"), local("Bodoni-11-Medium"),
-        url("http://localhost:8080/fonts/497e19f4581d9106f3cc40fb1fce7f1a.woff2") format("woff2"),
-        url("http://localhost:8080/fonts/46bc3ae844ab7d3d96ad451bc6496abb.woff") format("woff");
-        font-weight: 500;
-        font-style: normal; }
+        url("/fonts/subset-Bodoni-11-Medium.woff2") format("woff2"),
+        url("fonts/subset-Bodoni-11-Medium.woff") format("woff");
+        }
 
         @font-face {
         font-family: 'Montserrat';
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap; 
         src: local("Montserrat Medium"), local("Montserrat-Medium"),
-        url("http://localhost:8080/fonts/9cf8ce13da8ac8db4ef7d48847e55ea4.woff2") format("woff2"),
-        url("http://localhost:8080/fonts/655db1030dbc00a92182dfb70d2d15f7.woff") format("woff");
-        font-weight: 500;
-        font-style: normal; }
+        url("/fonts/subset-Montserrat-Medium.woff2") format("woff2"),
+        url("/fonts/subset-Montserrat-Medium.woff") format("woff");
+        }
 
         @font-face {
         font-family: 'Montserrat';
-        src: local("Montserrat ExtraBold"), local("Montserrat-ExtraBold"),
-        url("http://localhost:8080/fonts/e924aaa22213d64a37e6200163479f8b.woff2") format("woff2"),
-        url("http://localhost:8080/fonts/d74856a4c51b249e88e7a28cb374ca3b.woff") format("woff");
         font-weight: 800;
-        font-style: normal; }
+        font-style: normal;
+        font-display: swap;
+        src: local("Montserrat ExtraBold"), local("Montserrat-ExtraBold"),
+        url("/fonts/subset-Montserrat-ExtraBold.woff2") format("woff2"),
+        url("/fonts/subset-Montserrat-ExtraBold.woff") format("woff");
+         }
         	body {
         	font-family: sans-serif;
             }
@@ -55,13 +87,11 @@
                     document.documentElement.className += " fonts-loaded-2";
                     return;
                 }
-                document.fonts.load("1em LatoSubset").then(function () {
+                document.fonts.load("1em Montserrat").then(function () {
                     document.documentElement.className += " fonts-loaded-1";
                     Promise.all([
                         document.fonts.load("400 1em Bodoni* 11"),
-                        document.fonts.load("500 1em Bodoni* 11"),
-                        document.fonts.load("500 1em Montserrat"),
-                        document.fonts.load("800 1em Montserrat")
+                        document.fonts.load("700 1em Montserrat")
                     ]).then(function () {
                         document.documentElement.className += " fonts-loaded-2";
                         // Optimization for Repeat Views
@@ -74,10 +104,21 @@
 </head>
 <body>
 <noscript>
-    You need to enable JavaSssscriptt to run this app.
+    You need to enable Javascript to run this app.
 </noscript>
 
 <div id="app"></div>
+<script>
+    if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').then(registration => {
+    console.log('SW registered: ', registration);
+    }).catch(registrationError => {
+    console.log('SW registration failed: ', registrationError);
+    });
+    });
+    }
 
+</script>
 </body>
 </html>

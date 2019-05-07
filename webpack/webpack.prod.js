@@ -5,7 +5,8 @@
 
 // webpack plugins
 // eslint-disable-next-line prefer-destructuring
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 // const CreateSymlinkPlugin = require('create-symlink-webpack-plugin')
 // const CriticalCssPlugin = require('critical-css-webpack-plugin')
@@ -21,7 +22,10 @@ const WebappWebpackPlugin = require('webapp-webpack-plugin')
 // const WhitelisterPlugin = require('purgecss-whitelister')
 const WorkboxPlugin = require('workbox-webpack-plugin')
 const Critters = require('critters-webpack-plugin')
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
 
+const CompressionPlugin = require('compression-webpack-plugin')
+const zopfli = require('@gfx/zopfli')
 
 const commonPaths = require('./paths')
 // Configure Bundle Analyzer
@@ -37,28 +41,24 @@ const configureTerser = () => ({
   sourceMap: true,
 })
 
-const configureOptimization = () => {
-  return {
-    splitChunks: {
-      chunks: 'all',
-    },
-    minimizer: [
-      new TerserPlugin(
-        configureTerser(),
-      ),
-      new OptimizeCSSAssetsPlugin({
-        cssProcessorOptions: {
-          map: {
-            inline: false,
-            annotation: true,
-          },
-          safe: true,
-          discardComments: true,
+const configureOptimization = () => ({
+  splitChunks: {
+    chunks: 'all',
+  },
+  minimizer: [
+    new TerserPlugin(configureTerser()),
+    new OptimizeCSSAssetsPlugin({
+      cssProcessorOptions: {
+        map: {
+          inline: false,
+          annotation: true,
         },
-      }),
-    ],
-  }
-}
+        safe: true,
+        discardComments: true,
+      },
+    }),
+  ],
+})
 // Configure Webapp webpack
 const configureWebapp = () => ({
   logo: './src/logo.png',
@@ -67,7 +67,8 @@ const configureWebapp = () => ({
   inject: 'force',
   favicons: {
     appName: 'Portfolio',
-    appDescription: 'Portfolio de un desarrollador Front End en el cual se muestra algunos trabajos',
+    appDescription:
+      'Portfolio de un desarrollador Front End en el cual se muestra algunos trabajos',
     developerName: 'Alberto Perez',
     developerURL: null,
     path: commonPaths.outputPath,
@@ -126,12 +127,23 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: '!!prerender-loader?string!./src/template.html',
-      inject: true,
+      inject: 'head',
+    }),
+    new ScriptExtHtmlWebpackPlugin({
+      defaultAttribute: 'defer',
     }),
     new WebappWebpackPlugin(configureWebapp()),
     // new CreateSymlinkPlugin(commonPaths.createSymlinkConfig, true),
     new WorkboxPlugin.GenerateSW(configureWorkbox()),
     new BundleAnalyzerPlugin(configureBundleAnalyzer()),
+    new CompressionPlugin({
+      compressionOptions: {
+        numiterations: 15,
+      },
+      algorithm(input, compressionOptions, callback) {
+        return zopfli.gzip(input, compressionOptions, callback)
+      },
+    }),
   ],
   devtool: 'source-map',
 }

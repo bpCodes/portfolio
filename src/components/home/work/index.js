@@ -1,8 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import style from './style.sass'
-import venta from './venta.jpg'
-import portfolio from './portfolio.jpg'
 
 // const Principal = dato.map((data, index) => (
 //   <figure className={style.work} key={index}>
@@ -17,8 +15,11 @@ export default function Work() {
       <div className={style.work1}>
         <Link to="/projects/portfolio">
           <figure className={style.fig}>
-            <img className={style.image} src={portfolio} alt="" />
-            
+            <img
+              className={style.image}
+              src="https://ik.imagekit.io/bpdesigns/Portfolio/work/tr:dpr-auto,tr:w-auto-500,ar-1-1,c-at_max,pr-true/portfolio_S10ATHIj4.jpg"
+              alt="Portada de Portfolio"
+              sizes="13.188em"/>
           </figure>
         </Link>
         <h2 className={style.description}>Portfolio</h2>
@@ -32,7 +33,11 @@ export default function Work() {
       <div className={style.work2}>
         <Link className={style.link} to="/projects/sistema-venta">
           <figure className={style.fig}>
-            <img className={style.image} src={venta} alt="" />
+            <img
+              className={style.image}
+              src="https://ik.imagekit.io/bpdesigns/Portfolio/work/tr:dpr-auto,tr:w-auto-500,ar-1-1,c-at_max,pr-true/venta_SydRTrLiV.jpg"
+              alt="Portada de sistema de venta"
+              sizes="13.188em"/>
           </figure>
         </Link>
         <h2 className={style.description}>Sistema de ventas</h2>

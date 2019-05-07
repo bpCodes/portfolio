@@ -5,16 +5,6 @@ import React from 'react'
 import uuidv4 from 'uuid/v4'
 
 import style from './style.sass'
-import venta from './venta.jpg'
-import web1 from './Mockup/web1.png'
-import web2 from './Mockup/web2.png'
-import web3 from './Mockup/web3.png'
-// import web4 from './Mockup/web4.png'
-import Venta from './Mockup/Venta.png'
-import Productos from './Mockup/Productos.png'
-// import Factura from './Mockup/Factura.png'
-// import Dashboard from './Mockup/Dashboard.png'
-// import DATA from '../data.json'
 
 const MockUp = () => (
   <div className={style.items} id="mockup" key={uuidv4()}>
@@ -26,8 +16,24 @@ const MockUp = () => (
       mayor comodidad de uso de la aplicación.
     </p>
     <figure className={style.image}>
-      <img className={style.mock1} src={Venta} alt="" />
-      <img src={Productos} alt="" />
+      {/* <img className={style.mock1} src={Venta} alt="" /> */}
+      {/* <img src={Productos} alt="" /> */}
+      <img
+        src="https://ik.imagekit.io/bpdesigns/Portfolio/project2/tr:w-auto,ar-1-1,fo-auto/Venta_SyvWCrLiN.png"
+        alt="MockUP del sistema"
+        sizes="100%"/>
+      <img
+        src="https://ik.imagekit.io/bpdesigns/Portfolio/project2/tr:w-auto,ar-1-1,fo-auto/Factura_ByWPWRBUjE.png"
+        alt="MockUP del sistema"
+        sizes="100%"/>
+      <img
+        src="https://ik.imagekit.io/bpdesigns/Portfolio/project2/tr:w-auto,ar-1-1,fo-auto/Productos_SyMMAH8sE.png"
+        alt="MockUP del sistema"
+        sizes="100%"/>
+      <img
+        src="https://ik.imagekit.io/bpdesigns/Portfolio/project2/tr:w-auto,ar-1-1,fo-auto/Dashboard_S1Jf0rUoE.png"
+        alt="MockUP del sistema"
+        sizes="100%"/>
     </figure>
   </div>
 )
@@ -73,16 +79,36 @@ const Screen = () => (
   <div className={[style.items, style.screen]} id="screen" key={uuidv4()}>
     <h2 className={style.subtitle}>Screen</h2>
     <figure className={style.image}>
-      <img src={web1} alt="" />
-      <img src={web2} alt="" />
-      <img src={web3} alt="" />
+      {/* <img src={web1} alt="" /> */}
+      <img
+        src="https://ik.imagekit.io/bpdesigns/Portfolio/project2/tr:w-auto,ar-1-1,fo-auto/web1_HJdf0H8sE.png"
+        alt="Screens del proyecto ya terminado"
+        sizes="100%"/>
+      <img
+        src="https://ik.imagekit.io/bpdesigns/Portfolio/project2/tr:w-auto,ar-1-1,fo-auto/web2_S1xtG0HUsN.png"
+        alt="Screens del proyecto ya terminado"
+        sizes="100%"/>
+      <img
+        src="https://ik.imagekit.io/bpdesigns/Portfolio/project2/tr:w-auto,ar-1-1,fo-auto/web3_SkIGRBIj4.png"
+        alt="Screens del proyecto ya terminado"
+        sizes="100%"/>
+      <img
+        src="https://ik.imagekit.io/bpdesigns/Portfolio/project2/tr:w-auto,ar-1-1,fo-auto/web4_SJYfABUsE.png"
+        alt="Screens del proyecto ya terminado"
+        sizes="100%"/>
+      {/* <img src={web2} alt="" /> */}
+      {/* <img src={web3} alt="" /> */}
     </figure>
   </div>
 )
 const Header = () => (
   <React.Fragment>
     <figure className={style.image}>
-      <img className={style.title} src={venta} alt="" />
+      <img
+        className={style.image}
+        src="https://ik.imagekit.io/bpdesigns/Portfolio/work/tr:w-auto,ar-1-1,fo-auto/venta_SydRTrLiV.jpg"
+        alt="Portada de sistema de venta"
+        sizes="100%"/>
     </figure>
     <ul className={style.list}>
       <li className={style.item}>Rol: Developer</li>

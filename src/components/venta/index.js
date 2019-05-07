@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 
 import SubMenu from './subMenu'
 import Project from './project'
 
 import style from './style.sass'
 
-class Portfolio extends Component {
+class Portfolio extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {}

@@ -36,7 +36,7 @@ const SubMenu = () => (
         }}
         smooth
         to="/projects/portfolio#tipografia">
-        Tipografia
+        Tipografiaa
       </NavLink>
     </li>
     <li className={style.item}>
