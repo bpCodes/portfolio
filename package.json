@@ -127,7 +127,7 @@
     "style-loader": "0.23.1",
     "terser-webpack-plugin": "^1.2.3",
     "webapp-webpack-plugin": "^2.7.0",
-    "webpack": "4.28.1",
+    "webpack": "5.94.0",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "3.2.1",
     "webpack-dashboard": "^3.0.0",
